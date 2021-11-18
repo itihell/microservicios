@@ -1,12 +1,16 @@
-import React from 'react'
+import React from "react";
+import CreatePost from "./CreatePost";
+import ListPost from "./ListPost";
 
 function App() {
   return (
     <div>
-      Mi blog
+      <h1>Mi Blog</h1>
+      <CreatePost />
+      <hr />
+      <ListPost />
     </div>
-  )
+  );
 }
 
-export default App
-
+export default App;

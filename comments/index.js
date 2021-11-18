@@ -8,11 +8,12 @@ const app = express();
 let comments = {};
 
 app.use(bodyParser.json());
+app.use(cors())
 
 app.get("/posts/:id/comments", (req, res) => {
   const { id } = req.params;
   const postComments = comments[id] || [];
-  res.json({ postComments });
+  res.json(postComments);
 });
 app.post("/posts/:id/comments", (req, res) => {
   const postId = req.params.id;
