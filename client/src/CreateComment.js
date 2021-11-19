@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
-import ListComments from "./ListComments";
+
 
 function CreateComment({ id }) {
   const [content, setContent] = useState("");
@@ -14,7 +14,7 @@ function CreateComment({ id }) {
   };
   return (
     <div>
-      <ListComments id={id} />
+      
       <form onSubmit={onSubmit}>
         <div class="mb-3">
           <label for="exampleFormControlInput1" className="form-label">

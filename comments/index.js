@@ -29,6 +29,14 @@ app.post("/posts/:id/comments", (req, res) => {
 
   let postComments = comments[postId] || [];
   postComments.push(data);
+
+  const event = {
+    type: "CommentCreated",
+    data,
+  };
+
+  axios.post("http://localhost:6000/events", event);
+
   comments[postId] = postComments;
 
   res.json(data);

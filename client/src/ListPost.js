@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import CreateComment from "./CreateComment";
+import ListComments from "./ListComments";
 function ListPost() {
   const [posts, setPosts] = useState([]);
   const getPost = async () => {
-    const res = await axios.get("http://localhost:5000/posts");
+    const res = await axios.get("http://localhost:5002/posts");
     setPosts(res.data);
   };
 
@@ -21,6 +22,7 @@ function ListPost() {
             <div className="card-header bg-primary">{post.title}</div>
             <div className="card-body">
               <div>
+                <ListComments comments={post.comments}  />
                 <CreateComment id={post.id} />
               </div>
             </div>

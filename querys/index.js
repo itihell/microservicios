@@ -4,16 +4,36 @@ const bodyParser = require("body-parser");
 
 const app = express();
 
+const posts = {};
+
 app.use(bodyParser.json());
 app.use(cors());
 
-app.get("/", (req, res) => {
-  res.json("hola");
+app.get("/posts", (req, res) => {
+  res.json(posts);
 });
 
 app.post("/events", (req, res) => {
-  const event = req.body;
-  console.log("recibido", event);
+  const { type, data } = req.body;
+
+  if (type === "PostCreated") {
+    posts[data.id] = {
+      ...data,
+      comments: [],
+    };
+  }
+
+  if (type === "CommentCreated") {
+    const { id, content, postId } = data;
+    comentario = {
+      id,
+      postId,
+      content,
+    };
+    posts[postId].comments.push(comentario);
+  }
+  console.log("recibido", posts);
+
   res.json("hola envento");
 });
 
