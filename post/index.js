@@ -41,11 +41,13 @@ app.post("/posts", (req, res) => {
   };
 
   axios.post("http://localhost:6000/events", event);
-
+  
   res.json({ id, title });
 });
 
 app.post("/events", (req, res) => {
+  const event = req.body;
+  console.log("recibido",event);
   res.json("hola envento");
 });
 

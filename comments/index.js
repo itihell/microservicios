@@ -2,6 +2,7 @@ const express = require("express");
 const cors = require("cors");
 const bodyParser = require("body-parser");
 const { randomBytes } = require("crypto");
+const axios = require("axios");
 
 const app = express();
 
@@ -33,4 +34,9 @@ app.post("/posts/:id/comments", (req, res) => {
   res.json(data);
 });
 
+app.post("/events", (req, res) => {
+  const event = req.body;
+  console.log("recibido", event);
+  res.json("hola envento");
+});
 app.listen(5001, () => console.log("http://localhost:5001"));
