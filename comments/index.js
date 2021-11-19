@@ -8,7 +8,7 @@ const app = express();
 let comments = {};
 
 app.use(bodyParser.json());
-app.use(cors())
+app.use(cors());
 
 app.get("/posts/:id/comments", (req, res) => {
   const { id } = req.params;
