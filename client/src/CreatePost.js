@@ -13,8 +13,10 @@ function CreatePost() {
     <div>
       <h1>Crear Posts</h1>
       <form onSubmit={onSubmit}>
-        <div className="input-group">
-          <label htmlFor="title">Titulo</label>
+        <div class="mb-3">
+          <label for="exampleFormControlInput1" className="form-label">
+            Titulo
+          </label>
           <input
             type="text"
             onChange={(e) => setTitle(e.target.value)}
@@ -22,7 +24,10 @@ function CreatePost() {
             value={title}
           />
         </div>
-        <button type="submit">Guardar</button>
+
+        <button type="submit" className="btn btn-primary mb-3">
+          Guardar
+        </button>
       </form>
     </div>
   );

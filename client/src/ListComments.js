@@ -12,9 +12,12 @@ function ListComments({ id }) {
   }, []);
   return (
     <div>
-      <ul>
+      <ul className="list-group">
         {Object.values(comments).map((comment) => (
-          <li>{comment.content}</li>
+          <li key={comment.id} className="list-group-item">
+          <i className="far fa-comments"></i>
+          {comment.content}
+          </li>
         ))}
       </ul>
     </div>

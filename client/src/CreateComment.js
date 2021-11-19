@@ -16,8 +16,10 @@ function CreateComment({ id }) {
     <div>
       <ListComments id={id} />
       <form onSubmit={onSubmit}>
-        <div className="input-group">
-          <label htmlFor="comentario">Comentario</label>
+        <div class="mb-3">
+          <label for="exampleFormControlInput1" className="form-label">
+            Comentario
+          </label>
           <input
             id="comentario"
             type="text"
@@ -26,7 +28,10 @@ function CreateComment({ id }) {
             value={content}
           />
         </div>
-        <button type="submit">Guardar</button>
+
+        <button type="submit" className="btn btn-primary mb-3">
+          Guardar
+        </button>
       </form>
     </div>
   );
