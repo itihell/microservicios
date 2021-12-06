@@ -20,11 +20,13 @@ app.post("/posts/:id/comments", (req, res) => {
   const postId = req.params.id;
   const { content } = req.body;
   const id = randomBytes(4).toString("hex");
+  const status = "Pendiente";
 
   const data = {
     id,
     postId,
     content,
+    status,
   };
 
   let postComments = comments[postId] || [];
@@ -35,7 +37,7 @@ app.post("/posts/:id/comments", (req, res) => {
     data,
   };
 
-  axios.post("http://localhost:6000/events", event);
+  axios.post("http://localhost:5005/events", event);
 
   comments[postId] = postComments;
 

@@ -1,0 +1,64 @@
+version: "3.8"
+services:
+  eventbus:
+    network_mode: "host"
+    build:
+      context: ./eventbus
+      dockerfile: Dockerfile
+    command: "npm start"
+    volumes:
+      - ./eventbus:/app
+    # ports:
+    #   - 5000:5000
+
+  posts:
+    network_mode: "host"
+    build:
+      context: ./posts
+      dockerfile: Dockerfile
+    depends_on:
+      - "eventbus"
+    command: "npm start"
+    volumes:
+      - ./posts:/app
+    # ports:
+    #   - 4000:4000
+
+  comments:
+    network_mode: "host"
+    build:
+      context: ./comments
+      dockerfile: Dockerfile
+    depends_on:
+      - "eventbus"
+    command: "npm start"
+    volumes:
+      - ./comments:/app
+    # ports:
+    #   - 4001:4001
+
+  querys:
+    network_mode: "host"
+    build:
+      context: ./querys
+      dockerfile: Dockerfile
+    depends_on:
+      - "eventbus"
+    command: "npm start"
+    volumes:
+      - ./querys:/app
+    # ports:
+    #   - 4002:4002
+
+  moderacion:
+    network_mode: "host"
+    build:
+      context: ./moderacion
+      dockerfile: Dockerfile
+    depends_on:
+      - "eventbus"
+    command: "npm start"
+    volumes:
+      - ./moderacion:/app
+    # ports:
+    #   - 4003:4003

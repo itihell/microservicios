@@ -18,11 +18,11 @@ function ListPost() {
 
       {Object.values(posts).map((post) => (
         <div className="col-md-4" key={post.id}>
-          <div className="card border-primary">
+          <div className="card border-primary mt-2">
             <div className="card-header bg-primary">{post.title}</div>
             <div className="card-body">
               <div>
-                <ListComments comments={post.comments}  />
+                <ListComments comments={post.comments} />
                 <CreateComment id={post.id} />
               </div>
             </div>

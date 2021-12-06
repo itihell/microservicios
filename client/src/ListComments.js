@@ -7,7 +7,7 @@ function ListComments({ comments }) {
         {Object.values(comments).map((comment) => (
           <li key={comment.id} className="list-group-item">
             <i className="far fa-comments"></i>
-            {comment.content}
+            {comment.content} {comment.status}
           </li>
         ))}
       </ul>

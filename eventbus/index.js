@@ -23,8 +23,9 @@ app.post("/events", (req, res) => {
   axios.post("http://localhost:5000/events", event); //POST
   axios.post("http://localhost:5001/events", event); //Comments
   axios.post("http://localhost:5002/events", event); //Quersys
+  axios.post("http://localhost:5003/events", event); //moderador
 
   res.json(event);
 });
 
-app.listen(6000, () => console.log("http://localhost:6000"));
+app.listen(5005, () => console.log("http://localhost:5005"));
